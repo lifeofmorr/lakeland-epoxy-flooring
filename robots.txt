@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lifeofmorr.github.io/lakeland-epoxy-flooring/sitemap.xml
