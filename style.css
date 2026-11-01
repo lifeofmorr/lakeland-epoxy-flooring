@@ -197,7 +197,18 @@ footer .logo{display:inline-block}
 .gform select{background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
 .gform input:focus,.gform select:focus,.gform textarea:focus{outline:none;border-color:#e8912d;box-shadow:0 0 0 4px rgba(232,145,45,.18)}
 .gform textarea{resize:vertical;min-height:110px}
-.gform-btn{font:inherit;font-weight:700;font-size:1.05rem;color:BTN#1c1e22;background:linear-gradient(180deg,#f5a94b,#e8912d);border:0;border-radius:999px;padding:16px 34px;min-height:56px;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.35);transition:transform .18s, box-shadow .18s}
+.gform-btn{font:inherit;font-weight:700;font-size:1.05rem;color:#1c1e22;background:linear-gradient(180deg,#f5a94b,#e8912d);border:0;border-radius:999px;padding:16px 34px;min-height:56px;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.35);transition:transform .18s, box-shadow .18s}
 .gform-btn:hover{transform:translateY(-2px)}
 .gform-btn:active{transform:translateY(0)}
 @media (max-width:640px){.gform{grid-template-columns:1fr}}
+
+/* ---------- CINE-1 token bridge (2026-11-01, additive only) ----------
+   Aligns the remaining pages with the CINE-1 type/color tokens used by
+   cinematic.css on index/get-a-quote. No existing selector is changed. */
+:root{
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --cine-amber:#e8912d; --cine-ink:#17191c; --cine-panel:#202329; --cine-paper:#f4f1ec;
+}
+.eyebrow{letter-spacing:.14em}
+code,kbd{font-family:var(--mono)}
