@@ -67,3 +67,7 @@ footer a:hover{color:var(--paper)}
 .disclosure{border-top:1px solid var(--line);padding-top:20px;line-height:1.55}
 .cta-band{background:linear-gradient(120deg,#23262d,#1d2025);border:1px solid var(--line);border-radius:var(--radius);padding:34px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 @media(max-width:720px){.nav-links a:not(.btn){display:none}.grid2{grid-template-columns:1fr}.hero{padding:56px 0 48px}}
+
+/* Hero photo (added when a verified hero image is placed on index.html) */
+.hero-img{margin-top:36px}
+.hero-img img{display:block;width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line)}
