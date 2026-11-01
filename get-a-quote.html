@@ -99,5 +99,25 @@ if(!isNaN(sq)){var sz=document.getElementById('f-size');var target=sq<250?'Under
   Embed: <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQyINvX7UorRSDFL8rUIEO5IIanMhuqkMj7ysS4AwbsF5irA/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" title="Epoxy flooring quote form">Loading…</iframe>
   Post:  https://docs.google.com/forms/d/e/1FAIpQLSfQyINvX7UorRSDFL8rUIEO5IIanMhuqkMj7ysS4AwbsF5irA/formResponse
 -->
+<script>
+/* Preselect from the Design Your Floor configurator (index.html):
+   get-a-quote.html?coating=<exact option text>&size=<exact option text>.
+   Sets a select only when the value matches one of its options exactly. */
+(function(){
+  var q=new URLSearchParams(location.search);
+  function setSel(sel,param){
+    var v=q.get(param); if(!v||!sel) return;
+    for(var i=0;i<sel.options.length;i++){
+      if(sel.options[i].value===v||sel.options[i].text===v){
+        sel.selectedIndex=i;
+        sel.dispatchEvent(new Event('change',{bubbles:true}));
+        break;
+      }
+    }
+  }
+  setSel(document.querySelector('select[name="entry.439629179"]')||document.getElementById('f-coating'),'coating');
+  setSel(document.querySelector('select[name="entry.1771798367"]')||document.getElementById('f-size'),'size');
+})();
+</script>
 </body>
 </html>
