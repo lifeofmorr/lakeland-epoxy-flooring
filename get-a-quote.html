@@ -32,28 +32,22 @@
 
 <section><div class="wrap">
 <div class="cine-form-wrap rv">
-<div class="form-alert" id="form-alert" role="alert" hidden>
-  <strong>Something went wrong sending your request.</strong> Please try again, or use our backup quote form: <a href="https://docs.google.com/forms/d/e/1FAIpQLSfQyINvX7UorRSDFL8rUIEO5IIanMhuqkMj7ysS4AwbsF5irA/viewform" target="_blank" rel="noopener">Open the backup quote form</a>, or email us at <a href="mailto:donmondemorrison+epoxy@gmail.com">donmondemorrison+epoxy@gmail.com</a>.
-</div>
-<!-- Lead capture: FormSubmit endpoint (activated 2026-11-01, alias b90a59fa12c2c1505f2ff2a47f71afbe -> donmondemorrison+epoxy@gmail.com).
-     JS submits via the AJAX endpoint and lands on thanks.html; without JS the plain POST + _next does the same.
-     FormRelay was evaluated first (see wave2-F-leadgen.md): the live FormRelay service has no forms.json configured
-     and the Oracle VM is not SSH-reachable from the agent environment, so it cannot accept a keyed form yet. -->
-<form class="cine-form" id="quote-form" action="https://formsubmit.co/b90a59fa12c2c1505f2ff2a47f71afbe" method="post">
-<input type="hidden" name="_subject" value="New epoxy quote request (Lakeland Epoxy Flooring)">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://lifeofmorr.github.io/lakeland-epoxy-flooring/thanks.html">
-<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-<div class="gf-field"><label for="f-name">Name <span class="gf-star">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-<div class="gf-field"><label for="f-phone">Phone <span class="gf-star">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
-<div class="gf-field"><label for="f-email">Email <span class="gf-star">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-<div class="gf-field"><label for="f-city">City <span class="gf-star">*</span></label><select id="f-city" name="city" required><option value="" disabled selected>Choose…</option><option value="Lakeland">Lakeland</option><option value="Winter Haven">Winter Haven</option><option value="Auburndale">Auburndale</option><option value="Bartow">Bartow</option><option value="Haines City">Haines City</option><option value="Lake Wales">Lake Wales</option><option value="Mulberry">Mulberry</option><option value="Plant City">Plant City</option><option value="Davenport">Davenport</option><option value="Lake Alfred">Lake Alfred</option><option value="Polk City">Polk City</option><option value="Eagle Lake">Eagle Lake</option><option value="Other / nearby">Other / nearby</option></select></div>
-<div class="gf-field"><label for="f-coating">What are we coating? <span class="gf-star">*</span></label><select id="f-coating" name="service" required><option value="" disabled selected>Choose…</option><option value="Garage floor — full flake epoxy">Garage floor — full flake epoxy</option><option value="Metallic epoxy floor">Metallic epoxy floor</option><option value="Commercial / warehouse floor">Commercial / warehouse floor</option><option value="Other concrete floor (patio, lanai, shop)">Other concrete floor (patio, lanai, shop)</option><option value="Not sure yet — advise me">Not sure yet — advise me</option></select></div>
-<div class="gf-field"><label for="f-size">Approximate size</label><select id="f-size" name="size"><option value="" disabled selected>Choose…</option><option value="1-car garage (~250 sq ft)">1-car garage (~250 sq ft)</option><option value="2-car garage (~450 sq ft)">2-car garage (~450 sq ft)</option><option value="3-car garage (~650 sq ft)">3-car garage (~650 sq ft)</option><option value="Under 250 sq ft">Under 250 sq ft</option><option value="Over 650 sq ft / commercial">Over 650 sq ft / commercial</option><option value="Not sure">Not sure</option></select></div>
-<div class="gf-field gf-wide"><label for="f-notes">Anything else?</label><textarea id="f-notes" name="message" rows="4"></textarea></div>
+<!-- Lead capture: Google Forms backend (switched 2026-11-03 — the FormSubmit endpoint stopped
+     delivering and every submission ended in an error; verified failing live on 2026-11-03).
+     Mirrors the funnel/lighting sites: the form POSTs to the Google Form's formResponse endpoint
+     into a hidden iframe (target="quote_sink"); onsubmit flags window.quoteSubmitted, and when the
+     sink iframe loads we continue to thanks.html. -->
+<form class="cine-form" id="quote-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfQyINvX7UorRSDFL8rUIEO5IIanMhuqkMj7ysS4AwbsF5irA/formResponse" method="post" target="quote_sink" onsubmit="window.quoteSubmitted=true;">
+<div class="gf-field"><label for="f-name">Name <span class="gf-star">*</span></label><input id="f-name" name="entry.1957035992" type="text" autocomplete="name" required></div>
+<div class="gf-field"><label for="f-phone">Phone <span class="gf-star">*</span></label><input id="f-phone" name="entry.665545847" type="tel" autocomplete="tel" required></div>
+<div class="gf-field"><label for="f-email">Email <span class="gf-star">*</span></label><input id="f-email" name="entry.1502174414" type="email" autocomplete="email" required></div>
+<div class="gf-field"><label for="f-city">City <span class="gf-star">*</span></label><select id="f-city" name="entry.158369822" required><option value="" disabled selected>Choose…</option><option value="Lakeland">Lakeland</option><option value="Winter Haven">Winter Haven</option><option value="Auburndale">Auburndale</option><option value="Bartow">Bartow</option><option value="Haines City">Haines City</option><option value="Lake Wales">Lake Wales</option><option value="Mulberry">Mulberry</option><option value="Plant City">Plant City</option><option value="Davenport">Davenport</option><option value="Lake Alfred">Lake Alfred</option><option value="Polk City">Polk City</option><option value="Eagle Lake">Eagle Lake</option><option value="Other / nearby">Other / nearby</option></select></div>
+<div class="gf-field"><label for="f-coating">What are we coating? <span class="gf-star">*</span></label><select id="f-coating" name="entry.439629179" required><option value="" disabled selected>Choose…</option><option value="Garage floor — full flake epoxy">Garage floor — full flake epoxy</option><option value="Metallic epoxy floor">Metallic epoxy floor</option><option value="Commercial / warehouse floor">Commercial / warehouse floor</option><option value="Other concrete floor (patio, lanai, shop)">Other concrete floor (patio, lanai, shop)</option><option value="Not sure yet — advise me">Not sure yet — advise me</option></select></div>
+<div class="gf-field"><label for="f-size">Approximate size</label><select id="f-size" name="entry.1771798367"><option value="" disabled selected>Choose…</option><option value="1-car garage (~250 sq ft)">1-car garage (~250 sq ft)</option><option value="2-car garage (~450 sq ft)">2-car garage (~450 sq ft)</option><option value="3-car garage (~650 sq ft)">3-car garage (~650 sq ft)</option><option value="Under 250 sq ft">Under 250 sq ft</option><option value="Over 650 sq ft / commercial">Over 650 sq ft / commercial</option><option value="Not sure">Not sure</option></select></div>
+<div class="gf-field gf-wide"><label for="f-notes">Anything else?</label><textarea id="f-notes" name="entry.175901829" rows="4"></textarea></div>
 <div class="gf-field gf-wide"><button class="cine-btn" id="quote-submit" type="submit" style="width:100%">Request My Free Quote</button></div>
 </form>
+<iframe id="quote-sink" name="quote_sink" title="" aria-hidden="true" style="display:none"></iframe>
 <p class="fineprint" style="margin-top:12px">Prefer a different route? <a href="https://docs.google.com/forms/d/e/1FAIpQLSfQyINvX7UorRSDFL8rUIEO5IIanMhuqkMj7ysS4AwbsF5irA/viewform" target="_blank" rel="noopener">Open the quote form in a new tab</a>. By submitting, you agree to be contacted about your project by phone, text or email. No spam, no selling your information to data brokers — your request goes to local installers who can actually do the work.</p>
 <p style="margin-top:18px;text-align:center"><a href="index.html#estimator">← Get an instant ballpark first with the estimator</a></p>
 </div>
@@ -69,18 +63,10 @@ var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var rv=document.querySelectorAll('.rv');
 if(reduce||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')});}
 else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});rv.forEach(function(e){io.observe(e);});}
-/* FormSubmit AJAX submit: success -> thanks.html; failure -> visible fallback alert (backup form + email). */
-document.getElementById('quote-form').addEventListener('submit',function(ev){
-  ev.preventDefault();
-  var form=ev.target, btn=document.getElementById('quote-submit');
-  if(form.querySelector('input[name="_honey"]').value){ window.location.href='thanks.html'; return; }
-  btn.disabled=true; btn.textContent='Sending…';
-  var data={}; new FormData(form).forEach(function(v,k){ if(k!=='_honey'&&k!=='_next'){ data[k]=v; } });
-  fetch('https://formsubmit.co/ajax/b90a59fa12c2c1505f2ff2a47f71afbe',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-  .then(function(r){return r.json();})
-  .then(function(j){ if(j && (j.success==='true'||j.success===true)){ window.location.href='thanks.html'; } else { throw new Error('submit failed'); } })
-  .catch(function(){ btn.disabled=false; btn.textContent='Request My Free Quote';
-    var a=document.getElementById('form-alert'); a.hidden=false; a.classList.add('show'); a.scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'}); });
+/* Google Forms submit: the form posts into the hidden sink iframe (target="quote_sink",
+   onsubmit sets window.quoteSubmitted); when the sink loads, continue to thanks.html. */
+document.getElementById('quote-sink').addEventListener('load',function(){
+  if(window.quoteSubmitted){ window.location.href='thanks.html'; }
 });
 /* Preselect from the estimator: get-a-quote.html?type=garage|metallic|commercial&sqft=N */
 var q=new URLSearchParams(location.search);
