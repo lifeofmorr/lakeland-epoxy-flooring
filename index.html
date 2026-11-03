@@ -307,7 +307,7 @@ function sync(){
   var B=BLENDS[state.blend], S=SIZES[state.size];
   capEl.textContent=B.name+' blend · '+(state.finish==='gloss'?'High gloss':'Satin')+' · '+S.label+' garage';
   priceEl.innerHTML='Typical range for a '+S.label+' garage: <strong>'+S.range+'</strong> — your exact quote is free.';
-  ctaEl.href='get-a-quote.html?coating='+encodeURIComponent(COATING)+'&size='+encodeURIComponent(S.opt);
+  ctaEl.href='get-a-quote.html?coating='+encodeURIComponent(COATING)+'&size='+encodeURIComponent(S.opt)+'&notes='+encodeURIComponent(B.name+' blend · '+(state.finish==='gloss'?'High gloss':'Satin')+' finish — from the Design Your Floor configurator');
   stage.classList.toggle('cfg-is-satin',state.finish==='satin');
   draw();
 }

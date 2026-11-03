@@ -117,6 +117,7 @@ if(!isNaN(sq)){var sz=document.getElementById('f-size');var target=sq<250?'Under
   }
   setSel(document.querySelector('select[name="entry.439629179"]')||document.getElementById('f-coating'),'coating');
   setSel(document.querySelector('select[name="entry.1771798367"]')||document.getElementById('f-size'),'size');
+  var nv=q.get('notes'); var nf=document.getElementById('f-notes'); if(nv&&nf&&!nf.value){nf.value=nv;}
 })();
 </script>
 </body>
